@@ -5,6 +5,15 @@ spot1 = "Car"
 spot2 = "Goat"
 spot3 = "Goat"
 spots = [spot1, spot2, spot3]
+doors = """
+    |-----------|   |-----------|   |-----------|
+    |           |   |           |   |           |
+    |           |   |           |   |           |
+    |     1     |   |     2     |   |     3     |
+    |           |   |           |   |           |
+    |           |   |           |   |           |
+    |-----------|   |-----------|   |-----------|
+    """
 
 def spotDoor():
     global door1
@@ -18,3 +27,4 @@ def spotDoor():
     global door3
     door3 = spots[0]
     spots.pop(0)
+print(doors)
