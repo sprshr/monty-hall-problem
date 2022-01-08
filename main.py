@@ -27,4 +27,19 @@ def spotDoor():
     global door3
     door3 = spots[0]
     spots.pop(0)
-print(doors)
+
+def userFirstChoice():
+    global selectedDoor
+    #input-check
+    while True:
+        try:
+            print("which doors would you like to open?")
+            selectedDoor = int(input())
+        except:
+            print("Please enter an integer from 1 to 3")
+            continue
+        if  selectedDoor >= 1 and selectedDoor <= 3:
+            break
+        else:
+            print("Please enter an integer from 1 to 3")
+            continue
