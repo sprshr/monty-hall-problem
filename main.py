@@ -46,14 +46,16 @@ def userFirstChoice():
 
 def firstReveal():
     global revealedDoor
-    revealedDoor = random.range(0,2)
+    revealedDoor = random.randint(0,2)
     while revealedDoor == selectedDoor or doors[revealedDoor] == "CAR":
-        revealedDoor = random.randrange(0,2)
-    print("There is a" + doors[revealedDoor] + "behind the door number" + (revealedDoor + 1))
+        revealedDoor = random.randint(0,2)
+    doorsVisual2 = doorsVisual.replace(("|     " + str(revealedDoor+1) + "     |"), "|    GOAT   |")
+    print(doorsVisual2)
+    print("There is a" + doors[revealedDoor] + "behind the door number" + str(revealedDoor + 1))
     print("Would you like to swtich? y/n")
     global switch
     switch = input()
-    while switch != "y" or "n":
+    while switch != "y" or switch != "n":
         print("Please enter y for yes or n for no")
         switch = input()
     if switch == "y":
