@@ -1,11 +1,9 @@
 import random
 
 #global vars
-spot1 = "Car"
-spot2 = "Goat"
-spot3 = "Goat"
-spots = [spot1, spot2, spot3]
-doors = """
+spots = ["GOAT", "GOAT", "CAR"]
+doors = ["door1", "door2", "door3"]
+doorsVisual = """
     |-----------|   |-----------|   |-----------|
     |           |   |           |   |           |
     |           |   |           |   |           |
@@ -16,17 +14,18 @@ doors = """
     """
 
 def spotDoor():
-    global door1
-    spotChosen = random.randint(0,2)
-    door1 = spots[spotChosen]
+    #door1
+    spotChosen = random.randint(0, 2)
+    doors[0] = spots[spotChosen]
     spots.pop(spotChosen)
-    global door2
+    #door2
     spotChosen = random.randint(0,1)
-    door2 = spots[spotChosen]
+    doors[1] = spots[spotChosen]
     spots.pop(spotChosen)
-    global door3
-    door3 = spots[0]
+    #door3
+    doors[2] = spots[0]
     spots.pop(0)
+
 
 def userFirstChoice():
     global selectedDoor
@@ -43,3 +42,20 @@ def userFirstChoice():
         else:
             print("Please enter an integer from 1 to 3")
             continue
+    selectedDoor -= 1
+
+def firstReveal():
+    global revealedDoor
+    revealedDoor = random.range(0,2)
+    while revealedDoor == selectedDoor or doors[revealedDoor] == "CAR":
+        revealedDoor = random.randrange(0,2)
+    print("There is a" + doors[revealedDoor] + "behind the door number" + (revealedDoor + 1))
+    print("Would you like to swtich? y/n")
+    global switch
+    switch = input()
+    while switch != "y" or "n":
+        print("Please enter y for yes or n for no")
+        switch = input()
+    if switch == "y":
+        switch = True
+    else: switch = False
