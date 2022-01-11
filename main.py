@@ -1,17 +1,7 @@
 import random
-
-#global vars
-spots = ["GOAT", "GOAT", "CAR"]
-doors = ["door1", "door2", "door3"]
-doorsVisual = """
-    |-----------|   |-----------|   |-----------|
-    |           |   |           |   |           |
-    |           |   |           |   |           |
-    |     1     |   |     2     |   |     3     |
-    |           |   |           |   |           |
-    |           |   |           |   |           |
-    |-----------|   |-----------|   |-----------|
-    """
+print("Mounty Hall Problem")
+print("By Sepehr Sahraian")
+print("AP CSP")
 
 def spotDoor():
     #door1
@@ -54,7 +44,7 @@ def reveal():
     doorsVisual = doorsVisual.replace(("|     " + str(revealedDoor+1) + "     |"), "|    GOAT   |")
     print(doorsVisual)
     print("There is a " + doors[revealedDoor] + " behind the door number " + str(revealedDoor + 1))
-    print("Would you like to swtich? y/n")
+    print("Would you like to swtich? (y/n)")
     global switch
     switch = str(input())
     while switch != "y" and switch != "n":
@@ -112,8 +102,30 @@ def openingDoor(switch):
 
 
 #Game Loop
-spotDoor()
-userFirstChoice()
-reveal()
-switchingDoor(switch)
-openingDoor(switch)
+while True:
+    #global vars
+    spots = ["GOAT", "GOAT", "CAR"]
+    doors = ["door1", "door2", "door3"]
+    doorsVisual = """
+    |-----------|   |-----------|   |-----------|
+    |           |   |           |   |           |
+    |           |   |           |   |           |
+    |     1     |   |     2     |   |     3     |
+    |           |   |           |   |           |
+    |           |   |           |   |           |
+    |-----------|   |-----------|   |-----------|
+    """
+
+    spotDoor()
+    userFirstChoice()
+    reveal()
+    switchingDoor(switch)
+    openingDoor(switch)
+    print("Would you like to play again? (y/n)")
+    again = input()
+    while again != "y" and again != "n":
+        print("Please enter y for yes and n for no")
+    if again == "y": continue
+    else:
+        print("Thanks")
+        break 
