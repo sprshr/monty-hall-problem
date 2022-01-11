@@ -1,5 +1,5 @@
 import random
-print("Mounty Hall Problem")
+print("Monty Hall Problem")
 print("By Sepehr Sahraian")
 print("AP CSP")
 
@@ -96,10 +96,6 @@ def openingDoor(switch):
             print(doorsVisual)
             print('')
             print("You Suck!")
-
-
-
-
 
 #Game Loop
 while True:
