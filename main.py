@@ -44,7 +44,7 @@ def userFirstChoice():
             print("Please enter an integer from 1 to 3")
             continue
     selectedDoor -= 1
-
+#reveal the one of the goats
 def reveal():
     global revealedDoor
     revealedDoor = random.randint(0,2)
@@ -53,7 +53,7 @@ def reveal():
     global doorsVisual
     doorsVisual = doorsVisual.replace(("|     " + str(revealedDoor+1) + "     |"), "|    GOAT   |")
     print(doorsVisual)
-    print("There is a" + doors[revealedDoor] + "behind the door number" + str(revealedDoor + 1))
+    print("There is a " + doors[revealedDoor] + " behind the door number " + str(revealedDoor + 1))
     print("Would you like to swtich? y/n")
     global switch
     switch = str(input())
@@ -70,7 +70,7 @@ def switchingDoor(switch):
         switchTo = random.randint(0,2)
         while switchTo == revealedDoor or switchTo == selectedDoor:
             switchTo = random.randint(0,2)
-        print("There is a " + doors[switchTo] + "behind the door number " + str(switchTo+1))
+        print("There is a " + doors[switchTo] + " behind the door number " + str(switchTo+1))
         global doorsVisual
         if doors[switchTo] == "CAR":
             doorsVisual = doorsVisual.replace(("|     " + str(switchTo+1) + "     |"), "|    CAR    |")
@@ -83,7 +83,31 @@ def switchingDoor(switch):
             doorsVisual = doorsVisual.replace(("|     " + str(switchTo+1) + "     |"), "|    GOAT   |")
             print(doorsVisual)
             print('')
-            print("You Suck")
+            print("You Suck!")
+
+#opens selected door while switching door == false
+def openingDoor(switch):
+    if switch == False:
+        global notOpened
+        notOpened = random.randint(0,2)
+        while notOpened == revealedDoor or notOpened == selectedDoor:
+            notOpened = random.randint(0,2)
+        print("There is a " + doors[selectedDoor] + " behind the door number " + str(notOpened+1))
+        global doorsVisual
+        if doors[selectedDoor] == "CAR":
+            doorsVisual = doorsVisual.replace(("|     " + str(selectedDoor+1) + "     |"), "|    CAR    |")
+            doorsVisual = doorsVisual.replace(("|     " + str(notOpened+1) + "     |"), "|    GOAT   |")
+            print(doorsVisual)
+            print('')
+            print("You Won!")
+        else:
+            doorsVisual = doorsVisual.replace(("|     " + str(notOpened+1) + "     |"), "|    CAR    |")
+            doorsVisual = doorsVisual.replace(("|     " + str(selectedDoor+1) + "     |"), "|    GOAT   |")
+            print(doorsVisual)
+            print('')
+            print("You Suck!")
+
+
 
 
 
@@ -92,3 +116,4 @@ spotDoor()
 userFirstChoice()
 reveal()
 switchingDoor(switch)
+openingDoor(switch)
