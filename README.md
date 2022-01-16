@@ -9,7 +9,9 @@ Behind two of them there are two goats but behind one of them there is your fanc
 After you make you first selection, Monty tells you where one of the goats is located. Then he offers you to switch to the other door. You can either stick to your first selection or switch.
 \
 Whether you stick to tyour selection or not, Monty will open the two other doors. If a goat is behind oyur doors, you loose, otherwise the car is yours! 💯 💯 💯
-![Monty Hall problem](https://commons.wikimedia.org/wiki/File:Monty_open_door.svg#/media/File:Monty_open_door.svg)
+\
+\
+![Monty Hall problem](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Monty_open_door.svg/1200px-Monty_open_door.svg.png)
 ### Game Tip!
 It is recommended to always swtich as there is higher probeblity for car to be behind the door you have not chosen. To understand the probablities in this game watch [this video on YouTube](https://youtu.be/4Lb-6rxZxx0).
 
