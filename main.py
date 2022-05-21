@@ -23,15 +23,15 @@ def userFirstChoice():
     #input-check
     while True:
         try:
-            print("which doors would you like to open?")
+            print("Which door would you like to open?")
             selectedDoor = int(input())
         except:
-            print("Please enter an integer from 1 to 3")
+            print("Please enter an integer between 1 and 3")
             continue
         if  selectedDoor >= 1 and selectedDoor <= 3:
             break
         else:
-            print("Please enter an integer from 1 to 3")
+            print("Please enter an integer between 1 and 3")
             continue
     selectedDoor -= 1
 #reveal the one of the goats
@@ -43,8 +43,8 @@ def reveal():
     global doorsVisual
     doorsVisual = doorsVisual.replace(("|     " + str(revealedDoor+1) + "     |"), "|    GOAT   |")
     print(doorsVisual)
-    print("There is a " + doors[revealedDoor] + " behind the door number " + str(revealedDoor + 1))
-    print("Would you like to swtich? (y/n)")
+    print("There is a " + doors[revealedDoor] + " behind door number " + str(revealedDoor + 1))
+    print("Would you like to switch? (y/n)")
     global switch
     switch = str(input())
     while switch != "y" and switch != "n":
@@ -55,12 +55,12 @@ def reveal():
     else: switch = False
 
 def switchingDoor(switch):
-    if switch == True:
+    if switch:
         global switchTo
         switchTo = random.randint(0,2)
         while switchTo == revealedDoor or switchTo == selectedDoor:
             switchTo = random.randint(0,2)
-        print("There is a " + doors[switchTo] + " behind the door number " + str(switchTo+1))
+        print("There is a " + doors[switchTo] + " behind door number " + str(switchTo+1))
         global doorsVisual
         if doors[switchTo] == "CAR":
             doorsVisual = doorsVisual.replace(("|     " + str(switchTo+1) + "     |"), "|    CAR    |")
@@ -73,16 +73,16 @@ def switchingDoor(switch):
             doorsVisual = doorsVisual.replace(("|     " + str(switchTo+1) + "     |"), "|    GOAT   |")
             print(doorsVisual)
             print('')
-            print("You Suck!")
+            print("You Lost!")
 
 #opens selected door while switching door == false
 def openingDoor(switch):
-    if switch == False:
+    if not switch:
         global notOpened
         notOpened = random.randint(0,2)
         while notOpened == revealedDoor or notOpened == selectedDoor:
             notOpened = random.randint(0,2)
-        print("There is a " + doors[selectedDoor] + " behind the door number " + str(notOpened+1))
+        print("There is a " + doors[selectedDoor] + " behind door number " + str(notOpened+1))
         global doorsVisual
         if doors[selectedDoor] == "CAR":
             doorsVisual = doorsVisual.replace(("|     " + str(selectedDoor+1) + "     |"), "|    CAR    |")
@@ -95,7 +95,7 @@ def openingDoor(switch):
             doorsVisual = doorsVisual.replace(("|     " + str(selectedDoor+1) + "     |"), "|    GOAT   |")
             print(doorsVisual)
             print('')
-            print("You Suck!")
+            print("You Lost!")
 
 #Game Loop
 while True:
@@ -121,6 +121,7 @@ while True:
     again = input()
     while again != "y" and again != "n":
         print("Please enter y for yes and n for no")
+        again = input()
     if again == "y": continue
     else:
         print("Thanks")
